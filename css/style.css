@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
@@ -15,8 +19,6 @@ body, html {
     background-color: #333;
     color: #fff;
     padding: 1rem;
-    display: flex;
-    justify-content: space-between; /* 让 Logo 和链接两端对齐 */
     align-items: center; /* 让 Logo 和链接垂直居中对齐 */
     position: fixed;
     top: 0;
@@ -26,6 +28,7 @@ body, html {
 
 .container {
     display: flex;
+    justify-content: space-between; /* 让 Logo 和链接两端对齐 */
 }
 
 .logo-container {
@@ -38,11 +41,13 @@ body, html {
     width: 40px; /* 设置 Logo 的宽度 */
     height: 40px; /* 设置 Logo 的高度 */
     margin-right: 10px; /* 让 Logo 和文字之间有间距 */
+    filter: drop-shadow(2px 2px 5px #555); /* 向右下方偏移2px的阴影 */
 }
 
 .logo {
     font-size: 1.5rem;
     color: #fff; /* 确保文字颜色是白色 */
+    text-shadow: 5px 5px 5px #555;
 }
 
 .navbar .nav-links {
@@ -56,10 +61,26 @@ body, html {
     margin-left: 20px;
 }
 
-.navbar .nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
+/* 导航栏的链接样式 */
+.navbar .nav-links li a {
+    color: #fff; /* 保持白色 */
+    text-decoration: none; /* 去掉下划线 */
+    font-size: 1rem; /* 字体大小 */
+    padding: 0.5rem 1rem; /* 给链接增加内边距，增大点击区域 */
+    border-radius: 10px; /* 给链接增加圆角 */
+    transition: box-shadow 0.3s, color 0.3s; /* 过渡效果，背景色和文字颜色的变化 */
+    box-shadow: 0px 0px 10px 10px #444;
+    background-color: #333;
+}
+
+.navbar .nav-links li a:hover {
+    box-shadow: 0px 0px 10px 10px #555;
+    color: #fff; /* 悬停时的文字颜色保持白色 */
+}
+
+.navbar .nav-links li a:active {
+    box-shadow: 0px 0px 10px 5px #555;
+    color: #fff; /* 点击时的文字颜色保持白色 */
 }
 
 /* 轮播图样式 */
@@ -108,6 +129,10 @@ body, html {
     z-index: 2;
 }
 
+.slide-texts > * {
+    text-shadow: 5px 5px 5px #333;
+}
+
 .slide-texts h1 {
     text-align: center;
     color: white;
@@ -152,13 +177,53 @@ body, html {
     background-color: red; /* 可以修改为其他颜色 */
 }
 
-#introduction, #join {
-    padding: 50px;
+section {
+    margin-top: 50px;
     text-align: center;
-    margin-top: 50px; /* 保证不会被导航栏遮挡 */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 section h2 {
+    flex: 0 0 100%;
     margin-bottom: 20px;
     font-size: 2.5rem;
+}
+
+/* 管理团队样式 */
+.staff-member {
+    display: flex; /* 使用 Flexbox */
+    flex-direction: column; /* 纵向排列子元素 */
+    align-items: center; /* 中心对齐 */
+    width: 200px;
+    margin: 20px;
+    text-align: center;
+}
+
+.staff-member img {
+    width: 150px;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.5); */
+    /* background-color: rgb(250, 250, 250); */
+    filter: drop-shadow(0px 0px 10px #333);
+}
+
+.staff-member h3 {
+    margin: 10px 0 3px;
+    font-size: 1.5rem;
+}
+
+.staff-member h4 {
+    margin: 0 0 7px;
+    font-size: 1rem;
+}
+
+.staff-member p {
+    font-size: 0.75rem;
+    color: #555;
 }
