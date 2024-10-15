@@ -1,3 +1,3 @@
-* [首页](/)
-* [介绍](introduction.md)
-* [如何加入](join.md)
+- [介绍](introduction.md)
+- [怎么玩](howtoplay.md)
+- [加入我们](joinus.md)
