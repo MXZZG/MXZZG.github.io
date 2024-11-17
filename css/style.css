@@ -41,13 +41,11 @@ body, html {
     width: 40px; /* 设置 Logo 的宽度 */
     height: 40px; /* 设置 Logo 的高度 */
     margin-right: 10px; /* 让 Logo 和文字之间有间距 */
-    filter: drop-shadow(2px 2px 5px #555); /* 向右下方偏移2px的阴影 */
 }
 
 .logo {
     font-size: 1.5rem;
     color: #fff; /* 确保文字颜色是白色 */
-    text-shadow: 5px 5px 5px #555;
 }
 
 .navbar .nav-links {
@@ -68,18 +66,14 @@ body, html {
     font-size: 1rem; /* 字体大小 */
     padding: 0.5rem 1rem; /* 给链接增加内边距，增大点击区域 */
     border-radius: 10px; /* 给链接增加圆角 */
-    transition: box-shadow 0.3s, color 0.3s; /* 过渡效果，背景色和文字颜色的变化 */
-    box-shadow: 0px 0px 10px 10px #444;
     background-color: #333;
 }
 
 .navbar .nav-links li a:hover {
-    box-shadow: 0px 0px 10px 10px #555;
     color: #fff; /* 悬停时的文字颜色保持白色 */
 }
 
 .navbar .nav-links li a:active {
-    box-shadow: 0px 0px 10px 5px #555;
     color: #fff; /* 点击时的文字颜色保持白色 */
 }
 
