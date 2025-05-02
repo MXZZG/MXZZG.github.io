@@ -19,31 +19,31 @@ let slideInterval = null;
 const slides = [
   {
     id: 1,
-    image: 'src/assets/img/slides/1.png',
+    image: slide1,
     title: '',
     subtitle: ''
   },
   {
     id: 2,
-    image: 'src/assets/img/slides/2.png',
+    image: slide2,
     title: '',
     subtitle: ''
   },
   {
     id: 3,
-    image: 'src/assets/img/slides/3.png',
+    image: slide3,
     title: '',
     subtitle: ''
   },
   {
     id: 4,
-    image: 'src/assets/img/slides/4.png',
+    image: slide4,
     title: '',
     subtitle: ''
   },
   {
     id: 5,
-    image: 'src/assets/img/slides/5.png',
+    image: slide5,
     title: '',
     subtitle: ''
   }

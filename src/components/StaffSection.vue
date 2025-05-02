@@ -4,6 +4,8 @@
  * 展示服务器的管理团队成员信息
  */
 import { ref, onMounted } from 'vue';
+import laoV from '@/assets/img/lao_v.png';
+import gun0105 from '@/assets/img/GUN0105.png';
 
 // 控制元素可见性的状态
 const isVisible = ref(false);
@@ -14,14 +16,14 @@ const staffMembers = [
     id: 1,
     name: 'lao_v',
     role: '服主',
-    image: 'src/assets/img/lao_v.png',
+    image: laoV,
     description: '服主 lao_v 是冒险者之歌的创建者，负责服务器的整体管理与维护。'
   },
   {
     id: 2,
     name: 'GUN0105',
     role: '建筑师 管理员',
-    image: 'src/assets/img/GUN0105.png',
+    image: gun0105,
     description: 'GUN0105 是服务器的主要建筑师，设计并搭建了许多精美的建筑，同时还与服主共同管理服务器。'
   }
 ];
@@ -185,10 +187,6 @@ h2::after {
   }
 }
 </style>
-
-
-import laoV from '@/assets/img/lao_v.png';
-import gun0105 from '@/assets/img/GUN0105.png';
 
 export default {
   data() {
