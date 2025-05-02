@@ -1,0 +1,35 @@
+/* 图标样式 */
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.info-card {
+    background: var(--primary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform var(--transition-speed) ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.contact-icons i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+.contact-icons i:hover {
+    color: var(--secondary-color);
+}

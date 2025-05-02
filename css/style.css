@@ -1,118 +1,152 @@
-* {
+/* 全局样式 */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #343a40;
+    --accent-color: #ff6b6b;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-html {
     scroll-behavior: smooth;
-}
-
-body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* 设置淡灰色背景 */
+    background-color: #f9f9f9;
 }
 
 /* 导航栏样式 */
 .navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    align-items: center; /* 让 Logo 和链接垂直居中对齐 */
+    background-color: var(--secondary-color);
+    padding: 1rem 0;
     position: fixed;
-    top: 0;
     width: 100%;
-    z-index: 10;
+    top: 0;
+    z-index: 1000;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar.scrolled {
+    padding: 0.5rem 0;
+    background-color: rgba(52, 58, 64, 0.95);
 }
 
 .container {
-    display: flex;
-    justify-content: space-between; /* 让 Logo 和链接两端对齐 */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .logo-container {
     display: flex;
-    align-items: center; /* 让 Logo 和文字垂直居中 */
-    text-decoration: none; /* 取消链接默认的下划线 */
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: transform var(--transition-speed) ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.02);
 }
 
 .logo-img {
-    width: 40px; /* 设置 Logo 的宽度 */
-    height: 40px; /* 设置 Logo 的高度 */
-    margin-right: 10px; /* 让 Logo 和文字之间有间距 */
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    transition: transform var(--transition-speed) ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.logo-container:hover .logo-img {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .logo {
     font-size: 1.5rem;
-    color: #fff; /* 确保文字颜色是白色 */
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.navbar .nav-links {
+.nav-links {
     list-style: none;
     display: flex;
+    gap: 2rem;
     margin: 0;
-    align-items: center; /* 让导航链接垂直居中 */
+    padding: 0;
 }
 
-.navbar .nav-links li {
-    margin-left: 20px;
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    transition: all var(--transition-speed) ease;
 }
 
-/* 导航栏的链接样式 */
-.navbar .nav-links li a {
-    color: #fff; /* 保持白色 */
-    text-decoration: none; /* 去掉下划线 */
-    font-size: 1rem; /* 字体大小 */
-    padding: 0.5rem 1rem; /* 给链接增加内边距，增大点击区域 */
-    border-radius: 10px; /* 给链接增加圆角 */
-    background-color: #333;
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease;
 }
 
-.navbar .nav-links li a:hover {
-    color: #fff; /* 悬停时的文字颜色保持白色 */
+.nav-links a:hover {
+    background-color: rgba(255,255,255,0.1);
 }
 
-.navbar .nav-links li a:active {
-    color: #fff; /* 点击时的文字颜色保持白色 */
+.nav-links a:hover::after {
+    width: 80%;
 }
 
 /* 轮播图样式 */
 .carousel {
+    margin-top: 70px;
     position: relative;
-    width: 100%;
-    height: 100vh; /* 让轮播图占满整个视口高度 */
     overflow: hidden;
-    /* margin-top: 50px; 给导航栏留出空间 */
-    display: block;
+    box-shadow: var(--box-shadow);
+    border-radius: 0 0 8px 8px;
 }
 
 .slides {
     display: flex;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
+    transition: transform var(--transition-speed) ease;
 }
 
 .slide {
+    min-width: 100%;
     position: relative;
-    width: 100%;
+    opacity: 0.7;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.slide.active {
+    opacity: 1;
 }
 
 .slide img {
     width: 100%;
-    height: 100vh; /* 图片占据整个视口高度 */
-    object-fit: cover; /* 保持图片比例并裁剪图片以填充整个视口 */
-    filter: brightness(50%);
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* 黑色半透明遮罩 */
-    z-index: 1; /* 遮罩在文本下方 */
+    height: 70vh;
+    object-fit: cover;
+    filter: brightness(0.85);
 }
 
 .slide-texts {
@@ -120,104 +154,388 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-}
-
-.slide-texts > * {
-    text-shadow: 5px 5px 5px #333;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: all 0.5s ease;
+    width: 80%;
+    max-width: 800px;
 }
 
 .slide-texts h1 {
-    text-align: center;
-    color: white;
     font-size: 3rem;
-}
-
-.slide-texts h2 {
-    text-align: center;
-    color: white;
-    font-size: 2rem;
+    margin-bottom: 1rem;
+    transform: translateY(20px);
+    transition: transform 0.6s ease;
 }
 
 .slide-texts p {
-    margin-top: 20px;
-    text-align: center;
-    color: white;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    transform: translateY(20px);
+    transition: transform 0.6s ease 0.1s;
 }
 
-.indicators {
+.slide.active .slide-texts {
+    opacity: 1;
+}
+
+.slide.active .slide-texts h1,
+.slide.active .slide-texts p {
+    transform: translateY(0);
+}
+
+/* 轮播图导航按钮 */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 2;
+}
+
+.carousel-nav button {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.carousel-nav button:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* 轮播图指示器 */
+.carousel-indicators {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    gap: 10px;
+    z-index: 2;
 }
 
 .indicator {
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    margin: 0 5px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    opacity: 0.5; /* 默认不活跃状态 */
-    transition: opacity 0.3s;
-    z-index: 3;
+    transition: all var(--transition-speed) ease;
+    border: 2px solid transparent;
 }
 
 .indicator.active {
-    opacity: 1; /* 当前活动的 indicator */
-    background-color: red; /* 可以修改为其他颜色 */
+    background: white;
+    transform: scale(1.2);
+    border-color: var(--primary-color);
 }
 
+/* 内容区块样式 */
 section {
-    margin-top: 50px;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 section h2 {
-    flex: 0 0 100%;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+    font-size: 2.2rem;
+    color: var(--secondary-color);
 }
 
-/* 管理团队样式 */
-.staff-member {
-    display: flex; /* 使用 Flexbox */
-    flex-direction: column; /* 纵向排列子元素 */
-    align-items: center; /* 中心对齐 */
-    width: 200px;
-    margin: 20px;
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+}
+
+/* 服务器介绍部分 */
+#introduction {
+    background-color: white;
+}
+
+#introduction p {
+    font-size: 1.1rem;
+    line-height: 1.8;
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 管理团队部分 */
+#staff {
+    background-color: var(--light-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.staff-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed) ease, box-shadow 0.3s ease;
+}
+
+.staff-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .staff-member img {
-    width: 150px;
-    height: 290px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.5); */
-    /* background-color: rgb(250, 250, 250); */
-    filter: drop-shadow(0px 0px 10px #333);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    transition: transform var(--transition-speed) ease;
+}
+
+.staff-member:hover img {
+    transform: scale(1.05);
+}
+
+.staff-member-context {
+    margin-bottom: 1rem;
 }
 
 .staff-member h3 {
-    margin: 10px 0 3px;
-    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: var(--secondary-color);
+    font-size: 1.8rem;
 }
 
 .staff-member h4 {
-    margin: 0 0 7px;
-    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .staff-member p {
-    font-size: 0.75rem;
-    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* 加入我们部分 */
+#join {
+    background: linear-gradient(135deg, var(--secondary-color), #1a1e21);
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    padding: 4rem 2rem;
+}
+
+#join h2 {
+    color: white;
+}
+
+#join h2::after {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+}
+
+#join p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+}
+
+/* 加入按钮样式 */
+.join-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.join-button {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--accent-color);
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 1.2rem;
+}
+
+.join-icon {
+    font-size: 1.4rem;
+}
+
+.join-button:hover {
+    background-color: #ff8585;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    color: rgba(255,255,255,0.8);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* 汉堡菜单按钮 */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    transition: all var(--transition-speed) ease;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background-color: var(--secondary-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right var(--transition-speed) ease;
+        padding: 2rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        width: 80%;
+        text-align: center;
+        padding: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .slide img {
+        height: 50vh;
+    }
+
+    .slide-texts h1 {
+        font-size: 1.8rem;
+    }
+
+    .slide-texts p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .staff-member {
+        padding: 1.5rem;
+    }
+
+    .carousel-nav button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
 }
