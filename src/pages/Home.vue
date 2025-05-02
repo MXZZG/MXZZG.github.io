@@ -3,7 +3,6 @@
  * 首页组件
  * 展示网站的主要内容，包括轮播图、介绍、团队和加入我们等部分
  */
-import Navbar from '../components/Navbar.vue';
 import Carousel from '../components/Carousel.vue';
 import Introduction from '../components/Introduction.vue';
 import StaffSection from '../components/StaffSection.vue';
