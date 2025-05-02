@@ -14,14 +14,14 @@ const staffMembers = [
     id: 1,
     name: 'lao_v',
     role: '服主',
-    image: '/img/lao_v_skin.png',
+    image: '/src/assets/img/lao_v.png',
     description: '服主 lao_v 是冒险者之歌的创建者，负责服务器的整体管理与维护。'
   },
   {
     id: 2,
     name: 'GUN0105',
     role: '建筑师 管理员',
-    image: '/img/GUN0105_skin.png',
+    image: '/src/assets/img/GUN0105.png',
     description: 'GUN0105 是服务器的主要建筑师，设计并搭建了许多精美的建筑，同时还与服主共同管理服务器。'
   }
 ];

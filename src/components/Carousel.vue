@@ -14,31 +14,31 @@ let slideInterval = null;
 const slides = [
   {
     id: 1,
-    image: '/img/image1.png',
+    image: '/src/assets/img/slides/1.png',
     title: '',
     subtitle: ''
   },
   {
     id: 2,
-    image: '/img/image2.png',
+    image: '/src/assets/img/slides/2.png',
     title: '',
     subtitle: ''
   },
   {
     id: 3,
-    image: '/img/image3.png',
+    image: '/src/assets/img/slides/3.png',
     title: '',
     subtitle: ''
   },
   {
     id: 4,
-    image: '/img/image4.png',
+    image: '/src/assets/img/slides/4.png',
     title: '',
     subtitle: ''
   },
   {
     id: 5,
-    image: '/img/image5.png',
+    image: '/src/assets/img/slides/5.png',
     title: '',
     subtitle: ''
   }
