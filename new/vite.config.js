@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: '/new/',  // 设置基础路径为/new/，与仓库中的目录结构对应
+  base: '/',  // 修改基础路径为根目录，与GitHub Pages部署配置匹配
   build: {
     outDir: 'dist',  // 构建输出目录
     assetsDir: 'assets',  // 静态资源目录
