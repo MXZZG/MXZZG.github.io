@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+# 设置GITHUB_TOKEN的权限
+permissions:
+  contents: write
+  pages: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -19,16 +24,18 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
+        working-directory: ./new
         run: npm install
 
       - name: Build
+        working-directory: ./new
         run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./new/dist
           publish_branch: gh-pages
           destination_dir: .
           force_orphan: true
