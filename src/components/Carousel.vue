@@ -4,6 +4,11 @@
  * 负责展示网站首页的轮播图，包括自动播放、手动切换和触摸滑动功能
  */
 import { ref, onMounted, onUnmounted } from 'vue';
+import slide1 from '@/assets/img/slides/1.png';
+import slide2 from '@/assets/img/slides/2.png';
+import slide3 from '@/assets/img/slides/3.png';
+import slide4 from '@/assets/img/slides/4.png';
+import slide5 from '@/assets/img/slides/5.png';
 
 // 当前显示的幻灯片索引
 const currentSlide = ref(0);
@@ -310,3 +315,17 @@ onUnmounted(() => {
   }
 }
 </style>
+
+export default {
+  data() {
+    return {
+      slides: [
+        { image: slide1 },
+        { image: slide2 },
+        { image: slide3 },
+        { image: slide4 },
+        { image: slide5 }
+      ]
+    };
+  }
+};

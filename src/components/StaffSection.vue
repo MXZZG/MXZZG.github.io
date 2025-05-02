@@ -185,3 +185,18 @@ h2::after {
   }
 }
 </style>
+
+
+import laoV from '@/assets/img/lao_v.png';
+import gun0105 from '@/assets/img/GUN0105.png';
+
+export default {
+  data() {
+    return {
+      images: [
+        { image: laoV },
+        { image: gun0105 }
+      ]
+    };
+  }
+};
