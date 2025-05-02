@@ -36,7 +36,7 @@ onUnmounted(() => {
   <nav class="navbar" :class="{ 'scrolled': isScrolled }">
     <div class="container">
       <router-link to="/" class="logo-container">
-        <img src="/img/logo.png" alt="服务器Logo" class="logo-img">
+        <img src="/logo.png" alt="服务器Logo" class="logo-img">
         <h1 class="logo">冒险者之歌服务器</h1>
       </router-link>
       <div class="menu-toggle" :class="{ 'active': isMenuActive }" @click="toggleMenu">
