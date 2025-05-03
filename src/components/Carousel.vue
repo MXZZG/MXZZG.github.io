@@ -51,6 +51,7 @@ const slides = [
 
 // 切换到指定幻灯片
 const goToSlide = (index) => {
+  clearInterval(slideInterval); // 暂停自动播放
   currentSlide.value = index;
   if (currentSlide.value < 0) currentSlide.value = slides.length - 1;
   if (currentSlide.value >= slides.length) currentSlide.value = 0;
