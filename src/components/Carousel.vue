@@ -188,32 +188,38 @@ onUnmounted(() => {
   width: 100%;
   height: 70vh;
   object-fit: cover;
-  filter: brightness(0.85);
+  filter: brightness(0.7);
+  display: block; /* 移除图片下方的空隙 */
 }
 
 .slide-texts {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  bottom: 15%; /* 调整文字位置，使其更靠下一些 */
+  left: 5%; /* 从左侧开始，而不是居中 */
+  transform: translateY(0); /* 移除垂直居中 */
+  text-align: left; /* 文字左对齐 */
   color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  max-width: 60%; /* 限制文本最大宽度 */
 }
 
 .slide-texts h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.8rem; /* 略微调整字体大小 */
+  margin-bottom: 0.8rem;
+  font-weight: 700; /* 加粗标题 */
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 1s forwards 0.5s;
+  animation: fadeInUp 0.8s forwards 0.3s;
 }
 
 .slide-texts p {
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* 略微调整字体大小 */
+  font-weight: 400;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 1s forwards 0.8s;
+  animation: fadeInUp 0.8s forwards 0.6s;
+  line-height: 1.6; /* 增加行高 */
 }
 
 @keyframes fadeInUp {
@@ -242,29 +248,28 @@ onUnmounted(() => {
 }
 
 .carousel-nav button {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  width: 40px;
-  height: 40px;
+  border: none; /* 移除边框 */
+  width: 48px; /* 增大按钮尺寸 */
+  height: 48px;
   border-radius: 50%;
-  font-size: 1.4rem;
+  font-size: 1.8rem; /* 增大图标尺寸 */
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   padding: 0;
   line-height: 1;
 }
 
 .carousel-nav button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.8);
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1.05); /* 调整悬停缩放效果 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-indicators {
@@ -278,55 +283,55 @@ onUnmounted(() => {
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
+  width: 10px; /* 调整指示器大小 */
+  height: 10px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0 6px; /* 调整指示器间距 */
 }
 
 .indicator.active {
   background-color: white;
-  transform: scale(1.2);
+  transform: scale(1.3); /* 调整激活状态缩放 */
 }
 
 @media (max-width: 768px) {
   .slide img {
-    height: 50vh;
+    height: 60vh; /* 移动端增加图片高度 */
   }
   
+  .slide-texts {
+    bottom: 10%;
+    left: 5%;
+    padding: 15px;
+    max-width: 80%;
+  }
+
   .slide-texts h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .slide-texts p {
     font-size: 1rem;
+    line-height: 1.5;
   }
   
   .carousel-nav button {
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
-    border-width: 1.5px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
   }
   
   .carousel-nav {
-    padding: 0 12px;
+    padding: 0 15px;
+  }
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
   }
 }
 </style>
-
-export default {
-  data() {
-    return {
-      slides: [
-        { image: slide1 },
-        { image: slide2 },
-        { image: slide3 },
-        { image: slide4 },
-        { image: slide5 }
-      ]
-    };
-  }
-};

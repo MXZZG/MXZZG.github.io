@@ -61,15 +61,15 @@ onUnmounted(() => {
   width: 100%;
   z-index: 1000;
   padding: 1rem 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  background-color: rgba(20, 20, 20, 0.7); /* 更深的背景色，增加对比度 */
+  backdrop-filter: blur(12px); /* 增强模糊效果 */
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; /* 分离过渡效果 */
 }
 
 .navbar.scrolled {
-  padding: 0.5rem 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 0.75rem 0; /* 调整滚动后的内边距 */
+  background-color: rgba(10, 10, 10, 0.85); /* 更深的滚动后背景 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35); /* 增强阴影效果 */
 }
 
 .container {
@@ -89,20 +89,21 @@ onUnmounted(() => {
 }
 
 .logo-img {
-  height: 40px;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
+  height: 45px; /* 略微增大Logo尺寸 */
+  margin-right: 12px;
+  transition: transform 0.3s ease, filter 0.3s ease; /* 添加滤镜过渡 */
 }
 
 .logo-img:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(3deg); /* 调整悬停旋转角度 */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); /* 添加悬停发光效果 */
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem; /* 略微增大Logo文字大小 */
   margin: 0;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-weight: 700; /* 加粗Logo文字 */
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 .nav-links {
@@ -114,13 +115,13 @@ onUnmounted(() => {
 }
 
 .nav-links a {
-  color: white;
+  color: #e0e0e0; /* 调整链接颜色为浅灰色 */
   text-decoration: none;
   font-weight: 500;
   position: relative;
-  padding: 0.5rem 0.8rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  padding: 0.6rem 1rem; /* 调整内边距 */
+  border-radius: 6px; /* 增加圆角 */
+  transition: color 0.3s ease, background-color 0.3s ease; /* 分离过渡 */
 }
 
 .nav-links a::after {
@@ -128,19 +129,20 @@ onUnmounted(() => {
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: -2px; /* 调整下划线位置 */
+  left: 0;
+  transform: translateX(0);
   background-color: #42b883;
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-  background-color: rgba(255,255,255,0.1);
+  color: white; /* 悬停时文字变白 */
+  background-color: rgba(255, 255, 255, 0.08); /* 调整悬停背景色透明度 */
 }
 
 .nav-links a:hover::after {
-  width: 80%;
+  width: 100%; /* 悬停时下划线充满整个链接 */
 }
 
 .menu-toggle {
@@ -156,45 +158,50 @@ onUnmounted(() => {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: white;
+  background-color: #f0f0f0; /* 调整汉堡菜单颜色 */
   border-radius: 3px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 添加更活泼的过渡效果 */
 }
 
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
+    z-index: 1001; /* 确保汉堡菜单在导航链接之上 */
   }
   
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 0; /* 从顶部开始 */
     left: 0;
     width: 100%;
+    height: 100vh; /* 占据整个视口高度 */
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 1rem 0;
-    gap: 0;
-    transform: translateY(-100%);
+    justify-content: center; /* 垂直居中链接 */
+    align-items: center; /* 水平居中链接 */
+    background-color: rgba(10, 10, 10, 0.98); /* 更深的背景，接近不透明 */
+    padding: 2rem 0;
+    gap: 1.5rem; /* 调整链接间距 */
+    transform: translateX(100%); /* 从右侧滑入 */
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease; /* 调整过渡效果和时长 */
   }
   
   .nav-links.active {
-    transform: translateY(0);
+    transform: translateX(0); /* 滑入到视图 */
     opacity: 1;
     pointer-events: all;
   }
   
   .nav-links li {
-    width: 100%;
+    width: auto; /* 移除宽度100% */
     text-align: center;
   }
   
   .nav-links a {
-    display: block;
-    padding: 1rem 0;
+    display: inline-block; /* 改为inline-block以适应内容 */
+    padding: 1rem 1.5rem; /* 调整内边距 */
+    font-size: 1.2rem; /* 增大移动端链接字体 */
   }
   
   .menu-toggle.active span:nth-child(1) {
