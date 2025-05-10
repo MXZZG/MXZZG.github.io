@@ -1,0 +1,2 @@
+- [怎么玩](howtoplay.md)
+- [如何注册和登录](easyauth.md)

@@ -1,0 +1,1 @@
+import{_ as o,c as t,e}from"./index-enrdFbi1.js";const a={class:"not-found-page"},s={__name:"NotFound",setup(_){return(c,n)=>(e(),t("div",a))}},p=o(s,[["__scopeId","data-v-7a960f2a"]]);export{p as default};
