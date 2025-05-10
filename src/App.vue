@@ -9,7 +9,9 @@ import Navbar from './components/Navbar.vue';
 <template>
   <div class="app">
     <Navbar />
-    <router-view />
+    <main>
+      <router-view />
+    </main>
     <footer>
       <div class="footer-content">
         <p>&copy; {{ new Date().getFullYear() }} 冒险者之歌服务器 - 版权所有</p>
@@ -25,6 +27,10 @@ import Navbar from './components/Navbar.vue';
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+html, body, #app {
+  height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -36,12 +42,13 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f8f8f8;
+  /* height: 100% 已被整合到 html, body, #app 选择器中 */
 }
 
 .app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%; /* Changed from min-height: 100vh */
 }
 
 main {
@@ -52,7 +59,6 @@ footer {
   background-color: #333;
   color: white;
   padding: 2rem 0;
-  margin-top: 3rem;
 }
 
 .footer-content {

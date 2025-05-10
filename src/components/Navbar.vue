@@ -47,6 +47,7 @@ onUnmounted(() => {
       <ul class="nav-links" :class="{ 'active': isMenuActive }">
         <li><router-link to="/#introduction" @click="isMenuActive = false">服务器介绍</router-link></li>
         <li><router-link to="/#staff" @click="isMenuActive = false">成员介绍</router-link></li>
+        <li><a href="/docs/" @click="isMenuActive = false">文档</a></li>
         <li><a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=YlKiPDg3pchYjxKYjTWbXXKnQWKMfaiJ&authKey=glkupLiSqL2LoUFBVfVrPYdHk%2BVE%2FI2Os0Z9u%2FfWOs0MHLwI60gNHly2Rq95RXCr&noverify=0&group_code=246721795" target="_blank" rel="noopener" @click="isMenuActive = false">加入我们</a></li>
       </ul>
     </div>
